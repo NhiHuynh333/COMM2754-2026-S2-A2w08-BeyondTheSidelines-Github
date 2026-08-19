@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BEYOND THE SIDELINES</title>
+    
+    <!-- Thay file logo vào phần icon của web (favicon) -->
+    <link rel="icon" type="image/png" href="../edited-media/COMM2754-2026-S2-A2w08-BeyondTheSidelines-Logo.png">
+    
+    <!-- External Libraries: p5.js for 2D drawing and sound -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/addons/p5.sound.min.js"></script>
+    
+    <!-- Google Fonts for typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mea+Culpa&display=swap" rel="stylesheet">
+
+    <!-- External CSS Styling -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Main Artwork Screen (Visible immediately on load) -->
+    <section class="art-section">
+        <div id="artwork-wrapper">
+            <div id="canvas-container"></div>
+        </div>
+    </section>
+
+    <!-- Hidden Info Overlay (Appears only when the logo is clicked) -->
+    <div id="info-overlay">
+        <!-- Close Button -->
+        <button class="close-btn" id="close-info" aria-label="Close">✕</button>
+        
+        <!-- Project Title Image -->
+        <div class="project-name">
+            <img src="../edited-media/COMM2754-2026-S2-A2w08-BeyondTheSidelines-ProjectName.png" alt="Beyond the Sidelines">
+        </div>
+        
+        <!-- 3-Column Layout for Information -->
+        <div class="three-col-layout">
+            
+            <!-- Column 1: Project Credits -->
+            <div class="info-column">
+                <h2 class="column-title">PROJECT CREDITS</h2>
+                
+                <div class="info-group">
+                    <div class="subtitle">NAME</div>
+                    <div class="body-text">Huynh Ngoc Y Nhi — s4114389</div>
+                </div>
+
+                <div class="info-group">
+                    <div class="subtitle">GROUP NAME</div>
+                    <div class="body-text">Mai Cheo</div>
+                </div>
+
+                <div class="info-group">
+                    <div class="subtitle">GROUP MEMBERS</div>
+                    <div class="body-text">
+                        Harlee Dao Quynh Anh — s4067926<br>
+                        Stacy Pham Bao Ngoc — s4131430<br>
+                        Tran Dao Mai Han — s4131865
+                    </div>
+                </div>
+
+                <div class="info-group">
+                    <div class="subtitle">COURSE DETAILS</div>
+                    <div class="body-text">COMM2754_Digital Media Specialisation 1_SEM B 2026</div>
+                </div>
+
+                <div class="info-group">
+                    <div class="subtitle">ACADEMIC AFFILIATION</div>
+                    <div class="body-text">
+                        RMIT University Vietnam, Saigon South Campus<br>
+                        School of Communication and Design<br>
+                        Digital Media Program
+                    </div>
+                </div>
+
+                <div class="info-group">
+                    <div class="subtitle">DATE</div>
+                    <div class="body-text">21 August 2026</div>
+                </div>
+            </div>
+
+            <!-- Column 2: UN Goals -->
+            <div class="info-column">
+                <h2 class="column-title">SUSTAINABLE DEVELOPMENT GOAL</h2>
+                
+                <div class="info-group">
+                    <div class="subtitle">GOAL 5 — GENDER EQUALITY</div>
+                    <div class="body-text">Achieve gender equality and empower all women and girls.</div>
+                </div>
+
+                <div class="info-group">
+                    <div class="subtitle">TARGET 5.2</div>
+                    <div class="body-text">Eliminate all forms of violence against all women and girls in the public and private spheres, including trafficking and sexual and other types of exploitation.</div>
+                </div>
+            </div>
+
+            <!-- Column 3: Quote & Meaning -->
+            <div class="info-column">
+                <h2 class="column-title">QUOTE AND CALL TO ACTION</h2>
+                
+                <div class="info-group">
+                    <div class="quote-text">“If not me, who? If not now, when?” — Emma Watson</div>
+                    
+                    <div class="subtitle">PUBLICATION</div>
+                    <div class="body-text" style="margin-bottom: 25px;">
+                        HeForShe Campaign Launch, United Nations Headquarters, New York, 2014. <br>
+                        United Nations (22 September 2014) 'Emma Watson at the HeForShe Campaign 2014: Official UN Video' [video], United Nations, YouTube website, accessed 21 August 2026. <a href="https://www.youtube.com/watch?v=gkjW9PZBRfk" target="_blank" style="color: #AEEB87;">https://www.youtube.com/watch?v=gkjW9PZBRfk</a>
+                    </div>
+
+                    <div class="body-text text-justify">
+                        “If not me, who? If not now, when?” reminds us that change begins with ordinary people choosing to act. Every day, countless women and girls experience harassment, yet too many moments pass in silence. Supporting SDG 5.2, which aims to eliminate all forms of violence against women and girls, doesn't always require heroic actions; it starts with knowing how to respond safely. By learning the 5Ds of Bystander Intervention, you can help interrupt harm, support someone in need, and show that they are not alone. Master the 5Ds today: Distract, Delegate, Document, Direct, and Delay, and take the first step toward creating safer spaces for everyone.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="sketch.js"></script>
+    <script>
+        // Closes the info overlay when the 'X' button is clicked
+        document.getElementById('close-info').addEventListener('click', () => {
+            document.getElementById('info-overlay').classList.remove('active');
+        });
+    </script>
+</body>
+</html>

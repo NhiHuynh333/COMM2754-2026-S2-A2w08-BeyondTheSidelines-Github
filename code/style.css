@@ -1,0 +1,213 @@
+/* Removes default browser spacing and forces full screen */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; 
+    background-color: #FF0093; 
+}
+
+#artwork-wrapper {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+/* 
+   Responsive Canvas Container
+   Automatically scales to fit any screen size (no longer locked to 16:9)
+*/
+#canvas-container {
+    position: absolute; 
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+#canvas-container canvas {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+}
+
+/* Hidden Information Screen popup styling */
+#info-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(162, 8, 78, 0.8);
+    z-index: 1000;
+    padding: 0 60px;
+    box-sizing: border-box;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease-in-out;
+    overflow-y: auto; 
+    scrollbar-width: none; 
+}
+
+#info-overlay::-webkit-scrollbar { 
+    display: none; 
+}
+
+#info-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* 'X' Close Button Styling */
+.close-btn {
+    position: fixed; 
+    top: 45px;
+    right: 60px;
+    background: transparent;
+    border: 2px solid #D0FFEA;
+    color: #D0FFEA;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 1001;
+    transition: all 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    line-height: 0; 
+}
+.close-btn:hover {
+    background: #D0FFEA;
+    color: #A2084E;
+}
+
+/* Project Name Image Styling */
+.project-name {
+    position: relative; 
+    margin-top: 50px; 
+    margin-bottom: 50px; 
+    width: 66.66vw; 
+    z-index: 10;
+}
+
+.project-name img {
+    width: 90%; 
+    height: auto;
+    display: block;
+}
+
+/* 3-Column Text Layout */
+.three-col-layout {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5vw; 
+    width: 100%;
+    height: auto; 
+    padding-top: 0; 
+    padding-bottom: 80px; 
+    box-sizing: border-box;
+}
+
+.info-column {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Text Element Styling */
+.column-title {
+    font-family: 'Helvetica', Arial, sans-serif;
+    font-weight: bold; 
+    text-transform: uppercase; 
+    color: #D0FFEA;
+    font-size: 29px; 
+    border-bottom: 4px solid #AEEB87; 
+    padding-bottom: 12px;
+    margin-top: 0;
+    margin-bottom: 30px;
+    line-height: 1.1;
+}
+
+.info-group {
+    margin-bottom: 25px;
+}
+
+.subtitle {
+    font-family: 'Helvetica', Arial, sans-serif;
+    font-weight: bold;
+    color: #AEEB87;
+    text-transform: uppercase;
+    font-size: 22px; 
+    letter-spacing: 0.5px;
+    margin-bottom: 5px;
+}
+
+.body-text {
+    font-family: 'Helvetica', Arial, sans-serif;
+    font-weight: normal;
+    color: #D0FFEA;
+    font-size: 20px; 
+    line-height: 1.5;
+    margin: 0;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.quote-text {
+    font-family: 'Helvetica', Arial, sans-serif;
+    font-weight: bold;
+    color: #D0FFEA;
+    font-size: 32px;
+    line-height: 1.2;
+    border-left: 4px solid #AEEB87; 
+    padding-left: 20px;
+    margin-bottom: 30px;
+}
+
+/* 
+   Responsive Adaptation
+   Shrinks text and changes layouts for smaller screens
+*/
+
+/* Regular Laptops */
+@media (max-width: 1600px) {
+    .three-col-layout { gap: 4vw; }
+    .column-title { font-size: 26px; }
+    .subtitle { font-size: 20px; }
+    .body-text { font-size: 18px; }
+    .quote-text { font-size: 28px; }
+}
+
+/* Tablets (1200px and below) */
+@media (max-width: 1200px) {
+    .three-col-layout { gap: 30px; }
+    #info-overlay { padding: 0 40px; } 
+    .close-btn { right: 40px; }
+    .column-title { font-size: 22px; }
+    .subtitle { font-size: 18px; }
+    .body-text { font-size: 16px; }
+    .quote-text { font-size: 24px; }
+    .project-name { width: 85vw; } 
+}
+
+/* Phones (Forces a single vertical column below 900px) */
+@media (max-width: 900px) {
+    .three-col-layout {
+        grid-template-columns: 1fr; 
+        gap: 40px;
+    }
+    .close-btn { top: 25px; }
+    .column-title { font-size: 20px; }
+    .subtitle { font-size: 16px; }
+    .body-text { font-size: 15px; }
+    .quote-text { font-size: 22px; }
+    .project-name { width: 90vw; margin-top: 40px; }
+}
